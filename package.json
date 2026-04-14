@@ -4,7 +4,10 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "tsnd --respawn --clear src/app.ts",
+		"dev-1": "tsnd --respawn --clear src/app.ts",
+		
+		"dev": "node --env-file=.env -r ts-node/register src/app.ts",
+		"dev:watch": "node --env-file=.env --watch -r ts-node/register src/app.ts",
 		"build": "rimraf ./dist && tsc",
 		"start": "npm run build && node dist/app.js"
 	},
@@ -19,6 +22,7 @@
 		"typescript": "5.9.3"
 	},
 	"dependencies": {
-		"cron": "4.4.0"
+		"cron": "4.4.0",
+		"env-var": "7.5.0"
 	}
 }
